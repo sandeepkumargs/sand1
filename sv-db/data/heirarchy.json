@@ -1,0 +1,34 @@
+{
+"Hierarchy Progression":[
+	{
+		"Type" :"Engineering",
+		"Progression" :{
+			"10" : "Intern",
+			"20" : "Trainee",
+			"30" : "Associate",
+			"40" : "Engineer",
+			"50" : "Senior Engineer",
+			"60" : "Lead Engineer"
+		}
+	},
+	{
+		"Type" :"Management",
+		"Progression" :[
+			{
+			"id"   : "m1",
+			"name" : "People Management",
+			"80"   : "Manager",
+			"90"   : "Senior Manager",
+			"100"  : "Portfolio Manager"
+		},
+		{
+			"id"    : "m2",
+			"name"  : "Technical Management",
+			"80"    : "Principal",
+			"100"   : "Vice President",
+			"140"   : "Senior Vice President"
+		}
+	]
+	}
+]
+}
