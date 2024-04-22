@@ -1,0 +1,15 @@
+{
+  "name": "apis-nodejs",
+  "version": "1.0.0",
+  "description": "nodejs apis example",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Go Academy (TM)",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "node": "^21.6.2"
+  }
+}
