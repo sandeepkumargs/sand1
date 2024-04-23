@@ -1,15 +1,18 @@
 {
-  "name": "apis-nodejs",
+  "name": "webhooks-api",
   "version": "1.0.0",
-  "description": "nodejs apis example",
-  "main": "index.js",
+  "description": "A simple Nodejs API",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
-  "author": "Go Academy (TM)",
+  "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.18.2",
-    "node": "^21.6.2"
+    "body-parser": "^1.19.0",
+    "express": "^4.16.4",
+    "mongodb": "^3.6.0",
+    "mongodb-memory-server": "^6.6.7"
   }
 }
