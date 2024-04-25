@@ -1,0 +1,53 @@
+name: SkillViz CI
+
+on:
+  push:
+    branches: [ "main" ]
+    
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with: 
+          node-version: '20.12.0'
+
+
+      - name: Copy build files via ssh password
+        uses: appleboy/scp-action@v0.1.7
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          source: dist/*
+          target: /home/${{ secrets.SSH_USERNAME }}/
+
+      - name: Deploy app to remote server using SSH
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: |
+            echo "Connected to remote server"
+            pm2 delete all 
+            cd  /home/${{ secrets.SSH_USERNAME }}
+            cd sv-admin-service
+            npm i
+            echo "insatlled sv-admin node-modules"
+            cd ..
+            cd sv-auth
+            npm i
+            echo "insatlled sv-auth node-modules"
+            cd ..
+            cd sv-usr-service
+            npm i
+            echo "installed sv-usr node-modules"
+            cd 
+            pm2 start ecosystem.config.js
+            pm2 save
