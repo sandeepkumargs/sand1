@@ -5,8 +5,8 @@ app.use(express.json());
 
 app.get('/',
 (req, res) => {
-    res.send('Server running on 127.0.0.1 on port 3000,hi iam hacker');
-});
+    res.send('Server running on 127.0.0.1 on port 3000,hi iam snadeep');
+});i
 
 
 app.get('/getexample',
